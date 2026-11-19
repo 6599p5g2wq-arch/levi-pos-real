@@ -5754,6 +5754,15 @@ select::placeholder { color: var(--levi-faint); opacity: 1; }
     if(txt==='\u062a\u0633\u062c\u064a\u0644 \u0627\u0644\u062e\u0631\u0648\u062c'){ el.addEventListener('click', function(e){ e.preventDefault(); location.href='index.html'; }); }
     else if(txt==='\u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629'){ el.addEventListener('click', function(e){ e.preventDefault(); location.href='dashboard.html'; }); }
   });
+  document.querySelectorAll('[data-tab-group]').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      var group=btn.getAttribute('data-tab-group');
+      var tab=btn.getAttribute('data-tab');
+      document.querySelectorAll('[data-tab-group="'+group+'"]').forEach(function(b){ b.classList.toggle('active', b===btn); });
+      document.querySelectorAll('[id^="tab-'+group+'-"]').forEach(function(p){ p.classList.toggle('active', p.id==='tab-'+group+'-'+tab); });
+    });
+  });
   document.querySelectorAll('.topbar-care,.sidebar-brand').forEach(function(el){ el.classList.add('is-scrolled'); });
   try{var saved=localStorage.getItem('levi-theme');if(saved==='dark'||saved==='light')document.body.dataset.theme=saved;}catch(e){}
   var themeBtn=document.getElementById('theme-toggle');
