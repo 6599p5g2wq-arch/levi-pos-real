@@ -5743,4 +5743,16 @@ select::placeholder { color: var(--levi-faint); opacity: 1; }
 
 
 
-<div class="appsb-hover-card" role="tooltip"><b></b></div></body></html>
+<div class="appsb-hover-card" role="tooltip"><b></b></div><script>
+(function(){
+  function nav(t){ if(!t) return; location.href = t + '.html'; }
+  document.querySelectorAll('[data-nav-target]').forEach(function(el){
+    el.addEventListener('click', function(e){ e.preventDefault(); nav(el.getAttribute('data-nav-target')); });
+  });
+  document.querySelectorAll('button,a').forEach(function(el){
+    var txt=(el.innerText||el.textContent||'').trim();
+    if(txt==='\u062a\u0633\u062c\u064a\u0644 \u0627\u0644\u062e\u0631\u0648\u062c'){ el.addEventListener('click', function(e){ e.preventDefault(); location.href='index.html'; }); }
+    else if(txt==='\u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629'){ el.addEventListener('click', function(e){ e.preventDefault(); location.href='dashboard.html'; }); }
+  });
+})();
+</script></body></html>
