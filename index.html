@@ -4200,4 +4200,14 @@ select::placeholder { color: var(--levi-faint); opacity: 1; }
 
 
 
-</body></html>
+<script>
+(function(){
+  function enter(e){ if(e) e.preventDefault(); location.href='dashboard.html'; }
+  var f=document.getElementById('login-form');
+  if(f) f.addEventListener('submit', enter);
+  var b=document.getElementById('btn-login');
+  if(b) b.addEventListener('click', enter);
+  var p=document.getElementById('password');
+  if(p) p.addEventListener('keydown', function(e){ if(e.key==='Enter'){ e.preventDefault(); enter(); }});
+})();
+</script></body></html>
