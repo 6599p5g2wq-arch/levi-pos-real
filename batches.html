@@ -5743,4 +5743,16 @@ select::placeholder { color: var(--levi-faint); opacity: 1; }
 
 
 
-<div class="appsb-hover-card" role="tooltip"><b></b></div></body></html>
+<div class="appsb-hover-card" role="tooltip"><b></b></div><script>
+(function(){
+  function nav(t){ if(!t) return; location.href = t + '.html'; }
+  document.querySelectorAll('[data-nav-target]').forEach(function(el){
+    el.addEventListener('click', function(e){ e.preventDefault(); nav(el.getAttribute('data-nav-target')); });
+  });
+  document.querySelectorAll('button,a').forEach(function(el){
+    var txt=(el.innerText||el.textContent||'').trim();
+    if(txt==='طھط³ط¬ظٹظ„ ط§ظ„ط®ط±ظˆط¬'){ el.addEventListener('click', function(e){ e.preventDefault(); location.href='index.html'; }); }
+    else if(txt==='ط§ظ„ط±ط¦ظٹط³ظٹط©'){ el.addEventListener('click', function(e){ e.preventDefault(); location.href='dashboard.html'; }); }
+  });
+})();
+</script></body></html>
